@@ -155,7 +155,7 @@ tree = sage.estimator.Estimator(image,
 tree.fit(data_location)
 ```
 
-# Step 6: Deploying the Model
+## Step 6: Deploying the Model
 
 This is where the magic happens -- we have a trained model, and now we need to actually **_deploy_** it to the AWS cloud! Notice how during this step, we include a `json_serializer` -- this is so that the model can serialize and deserialize data as needed when taking data in as input. 
 
@@ -167,7 +167,7 @@ from sagemaker.predictor import json_serializer
 predictor = tree.deploy(1, 'ml.t2.medium', serializer=json_serializer)
 ```
 
-# Step 7: Cleanup  (IMPORTANT!)
+## Step 7: Cleanup  (IMPORTANT!)
 
 As a final step for this exercise, be sure to run the following line of code to delete your endpoint! Although you are running this lab on the free tier, you don't want to leave it running, because that is how costs can accrue. Run the cell below to delete your endpoint. 
 
@@ -176,7 +176,7 @@ As a final step for this exercise, be sure to run the following line of code to 
 sess.delete_endpoint(predictor.endpoint)
 ```
 
-# Step 8: Deactivate Everything in AWS
+## Step 8: Deactivate Everything in AWS
 
 In AWS, you pay for usage. This means that anything left running is being used.  While the AWS Free Tier we've signed up for allows us to do small things for free for prototyping or learning, leaving some things running may take us past the usage limits for the AWS Free Tier. In order to avoid getting charged, you'll need to do the following steps: 
 
